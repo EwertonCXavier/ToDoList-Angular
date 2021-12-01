@@ -1,0 +1,29 @@
+<main *ngIf="tasksList | async as tasksList">
+  <div class="table-header">
+    <button type="button" class="create-button" (click)="createTask()">Create Task</button>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Description</th>
+        <th>Author</th>
+        <th>Due Date</th>
+        <th>
+        <th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of tasksList">
+        <td>{{ task.description }}</td>
+        <td>{{ task.author }}</td>
+        <td>{{ task.dueDate }}</td>
+        <td>
+          <img src="/assets/edit.svg" (click)="editTask(task.id)">
+        </td>
+        <td>
+          <img src="/assets/delete.svg" (click)="deleteItem(task.id)">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</main>
